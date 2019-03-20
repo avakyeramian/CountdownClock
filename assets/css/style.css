@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Orbitron';
+  font-style: bold;
+  font-weight: 700;
+  src: url("../fonts/Orbitron-Bold.ttf");
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Orbitron',sans-serif;
+    color: red;
+    margin: 0;
+    background-color: black;
+    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#credit{
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    font-size: 1em;
+    z-index: 1;
+}
