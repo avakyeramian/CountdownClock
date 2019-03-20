@@ -29,7 +29,7 @@ function content()
         
         if(location.search){
             var search = location.search;
-
+            console.log(search);
         }else{
             editClock(null,null,null);
         }
@@ -42,6 +42,7 @@ function content()
             var date_label = elemCreate("label",{for:"date"},"Date");
             form.append(date_label);
             var date_input = elemCreate("input",{type:"date",name:"date",id:"date"},"");
+            date_input.required = true;
             form.append(date_input);
             if(date){
                 date_input.value = date;
@@ -50,6 +51,7 @@ function content()
             var time_label = elemCreate("label",{for:"time"},"Time");
             form.append(time_label);
             var time_input = elemCreate("input",{type:"time",name:"time",id:"time"},"");
+            time_input.required = true;
             form.append(time_input);
             if(time){
                 time_input.value = time;
@@ -58,11 +60,15 @@ function content()
             var message_label = elemCreate("label",{for:"message"},"Message");
             form.append(message_label);
             var message_input = elemCreate("input",{type:"text",name:"message",id:"message",placeholder:"a message"},"");
+            message_input.required = true;
             form.append(message_input);
             if(message){
                 message_input.value = message;
             }
-                                    
+            
+            var Apply_button = elemCreate("button",{id:"apply"},"Apply");
+            form.append(Apply_button);
+            
             countdownClock_div.append(form);
         }
         
