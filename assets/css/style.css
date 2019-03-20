@@ -9,18 +9,47 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     font-family: 'Orbitron',sans-serif;
     color: red;
     margin: 0;
     background-color: black;
-    overflow: hidden;
-    overflow-y: hidden;
-    overflow-x: hidden;
+}
+
+main {
+	flex-grow:1;
+}
+
+form {
+    margin: 1em 1em 1em 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin: 1em 1em 1em 1em;
+    background-color: red;
+    border: none;
+    color: white;
+    font-family: 'Orbitron',sans-serif;
+    padding: 1em 1em 1em 1em;
+}
+
+#clock_div {
+    text-align: center;
+}
+
+#settings{
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    font-size: 1em;
+    z-index: 1;
 }
 
 #credit{
     position: absolute;
-    bottom: 1em;
+    top: 1em;
     right: 1em;
     font-size: 1em;
     z-index: 1;
