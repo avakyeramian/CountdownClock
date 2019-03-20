@@ -138,26 +138,23 @@ function content()
     function timeDifferenceNow(date){
         var now = new Date().getTime();
         var futur = date.getTime();
-        var diff = now - futur;
         //snowman carl method
-        var delta = Math.abs(diff)/1000;
+        var delta = Math.abs(futur-now)/1000;
         var r = {};
         var s = {
             year: 31536000,
             month: 2592000,
-            week: 604800,
             day: 86400,
             hour: 3600,
             minute: 60,
             second: 1
         };
-
-        Object.keys(s).forEach(function(key){
+        for(var key in s){
             r[key] = Math.floor(delta / s[key]);
             delta -= r[key] * s[key];
-        });
+        }
 
-        // for example: {year:0,month:0,week:1,day:2,hour:34,minute:56,second:7}
+        // for example: {year:0,month:0,day:2,hour:34,minute:56,second:7}
         return r;
     }
     
@@ -177,21 +174,17 @@ function content()
             var textRemaining = "";
             if(t.year==0){
                 if(t.month==0){
-                    if(t.week==0){
-                        if(t.day==0){
-                            textRemaining = t.hour + " Hrs " + t.minute + " Mins " + t.second + " Secs";                             
-                        }else{
-                            textRemaining = t.day + " Days " + t.hour + " Hrs " + t.minute + " Mins " + t.second + " Secs"; 
-                        }
+                    if(t.day==0){
+                        textRemaining = t.hour + " Hrs " + t.minute + " Mins " + t.second + " Secs";                             
                     }else{
-                        textRemaining = t.week + " Weeks " + t.day + " Days " + t.hour + " Hrs " + t.minute + " Mins " + t.second + " Secs"; 
+                        textRemaining = t.day + " Days " + t.hour + " Hrs " + t.minute + " Mins " + t.second + " Secs"; 
                     }
                 }else{
-                    textRemaining = t.month + " Mths " + t.week + " Weeks " + t.day + " Days " + t.hour + " Hrs " + t.minute + " Mins " + t.second + " Secs"; 
+                    textRemaining = t.month + " Mths "+ t.day + " Days " + t.hour + " Hrs " + t.minute + " Mins " + t.second + " Secs"; 
                 }
                  
             }else{
-                textRemaining = t.year + " Yrs " + t.month + " Mths " + t.week + " Weeks " + t.day + " Days " + t.hour + " Hrs " + t.minute + " Mins " + t.second + " Secs";
+                textRemaining = t.year + " Yrs " + t.month + " Mths " + t.day + " Days " + t.hour + " Hrs " + t.minute + " Mins " + t.second + " Secs";
             }
             remaining_h1.innerHTML = textRemaining;
             
