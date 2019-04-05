@@ -33,7 +33,6 @@ function content()
             displayCountdownClock(param_object);
             var settings = elemCreate("a",{href:"#",id:"settings"},"Settings");
             settings.onclick = function(){
-                console.log(param_array);
                 var date = param_array[0].split("=")[1];
                 var time = param_array[1].split("=")[1].replace("h",":")
                 editClock(date,time,param_object.message)
@@ -125,8 +124,7 @@ function content()
         }
         date = date.split("-");
         time = time.split("h");
-
-        var date_Date = new Date(date[0],date[1],date[2],time[0],time[1],0,0);
+        var date_Date = new Date(date[0],date[1]-1,date[2],time[0],time[1],0,0); //Dirty fix thanks Gold
         param_object.date=date_Date;
 
         return param_object;
